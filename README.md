@@ -1,5 +1,4 @@
 # kubecfg
 
-<h1>Distribute Shared Kubernetes Configs</h1>
+Distribute Kubernetes Kubectl Configs
 
-TODO: Update Readme
