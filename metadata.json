@@ -1,0 +1,60 @@
+{
+  "name": "kubecfg",
+  "version": "0.1.0",
+  "package": "github.com/nikogura/kubecfg",
+  "description": "Distribute Shared Kubernetes Configs",
+  "repository": "https://localhost:8080/tools",
+  "building": {
+    "targets": [
+      {
+        "name": "darwin/amd64"
+      },
+      {
+        "name": "darwin/arm64"
+      },
+      {
+        "name": "linux/amd64"
+      }
+    ],
+    "extras": [
+      {
+        "template": "templates/description.tmpl",
+        "filename": "description.txt",
+        "executable": false
+      }
+    ]
+  },
+  "signing": {
+    "program": "gpg",
+    "email": "tester@foo.com"
+
+  },
+  "publishing": {
+    "targets": [
+      {
+        "src": "description.txt",
+        "dst": "{{.Repository}}/{{.Name}}/{{.Version}}/description.txt",
+        "sig": true,
+        "checksums": true
+      },
+      {
+        "src": "kubecfg_darwin_amd64",
+        "dst": "{{.Repository}}/{{.Name}}/{{.Version}}/darwin/amd64/{{.Name}}",
+        "sig": true,
+        "checksums": true
+      },
+      {
+        "src": "kubecfg_darwin_arm64",
+        "dst": "{{.Repository}}/{{.Name}}/{{.Version}}/darwin/arm64/{{.Name}}",
+        "sig": true,
+        "checksums": true
+      },
+      {
+        "src": "kubecfg_linux_amd64",
+        "dst": "{{.Repository}}/{{.Name}}/{{.Version}}/linux/amd64/{{.Name}}",
+        "sig": true,
+        "checksums": true
+      }
+    ]
+  }
+}
